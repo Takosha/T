@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <script>
+
+        const start = 500;
+        const growth = 300;
+        const firstCareerStageCoefficient = 1.5;
+        const secondCareerStageCoefficient = 0.75;
+
+
+        let currentSalary = start;
+
+        for (let year = 0; year < 20; year = year + 1) {
+
+            if (year < 3) {
+                currentSalary = currentSalary + growth * firstCareerStageCoefficient;
+
+            } else if (year > 6) {
+                currentSalary = currentSalary + growth * secondCareerStageCoefficient;
+
+            } else {
+                currentSalary = currentSalary + growth;
+            }
+
+            console.log(currentSalary);
+
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
