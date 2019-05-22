@@ -1,0 +1,83 @@
+<html>
+<meta charset="utf-8">
+
+<head>
+
+
+
+
+    <script>
+        window.onload = () => {
+            const phones = [
+                {
+                    model: 'XS',
+                    creater: 'Apple',
+                    core: 'A12 Bionic',
+                    img: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/xs/iphone-xs-silver-select-2018?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1550795411708'
+
+                },
+                {
+                    model: 'S10',
+                    creater: 'Samsung',
+                    core: 'Exynos',
+                    img: 'https://cdn-st1.rtr-vesti.ru/vh/pictures/o/190/918/0.jpg',
+                },
+                {
+                    model: 'P30',
+                    creater: 'Huawei',
+                    core: 'Kirin 980',
+                    img: 'https://cellucity.co.za/wp-content/uploads/2019/03/Huawei_P30Plus-002.jpg',
+                },
+                {
+                    model: 'Mi9',
+                    creater: 'Xiaomi',
+                    core: 'Snapdragon 855',
+                    img: 'https://img.staticbg.com/thumb/large/oaupload/banggood/images/D4/A7/ffeb899a-3bfd-418c-8435-cc02a18c55ac.jpg',
+
+                },
+            ];
+            const table = document.createElement('table');
+            phones.forEach((user) => {
+                const row = document.createElement('tr');
+
+                const modelCell = document.createElement('td');
+                modelCell.innerHTML = user.model;
+                row.appendChild(modelCell);
+
+                const createrCell = document.createElement('td');
+                createrCell.innerHTML = user.creater;
+                row.appendChild(createrCell);
+
+                const coreCell = document.createElement('td');
+                coreCell.innerHTML = user.core;
+                row.appendChild(coreCell);
+
+
+                const imgCell = document.createElement('td');
+                const img = document.createElement('img');
+                img.style.width = 225;
+                img.src = user.img;
+                imgCell.appendChild(img);
+                row.appendChild(imgCell);
+                table.appendChild(row);
+
+
+            });
+            const root = document.querySelector('#root');
+            root.appendChild(table);
+
+
+
+
+        }
+    </script>
+</head>
+<link href="styles.css" rel="styleshit" />
+
+<body>
+
+    <div id='root'></div>
+</body>
+
+
+</html>
