@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    </meta>
+    <script>
+        window.onload = () => {
+            const phones = [
+                {
+                    model: 'P30',
+                    creater: 'Huawei',
+                    core: 'Kirin 980',
+                    mark: '10',
+                    img: 'https://cf3.s3.souqcdn.com/item/2017/03/19/22/25/40/18/item_XL_22254018_29946741.jpg',
+                },
+                {
+                    model: 'Xs',
+                    creater: 'Apple',
+                    core: 'A12',
+                    mark: '9',
+                    img: 'https://www.gizmochina.com/wp-content/uploads/2018/09/Apple-iPhone-Xs-600x600.jpg',
+                },
+                {
+                    model: 'S10',
+                    creater: 'Samsung',
+                    core: 'Exynos 9820',
+                    mark: '8',
+                    img: 'https://i.allo.ua/media/catalog/product/cache/1/image/425x295/799896e5c6c37e11608b9f8e1d047d15/i/m/image_product_key_visual_beyond_s10__product_image_black_181211_sm_g975_galaxys10_.jpg',
+                },
+                {
+                    model: 'Mi 9',
+                    creater: 'Xiaomy',
+                    core: 'Snapdragon 855',
+                    mark: '7',
+                    img: 'https://avatars.mds.yandex.net/get-mpic/1244413/img_id9046001824985116025.png/9hq',
+                },
+            ];
+
+            const renderPhonesTable = ((filteredPhonesForRender) => {
+                const table = document.createElement('table');
+                filteredPhonesForRender.forEach((phones) => {
+
+                    const row = document.createElement('tr');
+
+                    const modelCell = document.createElement('td');
+                    modelCell.innerHTML = phones.model;
+                    row.appendChild(modelCell);
+                    const createrCell = document.createElement('td');
+                    createrCell.innerHTML = phones.creater;
+                    row.appendChild(createrCell);
+                    const coreCell = document.createElement('td');
+                    coreCell.innerHTML = phones.core;
+                    row.appendChild(coreCell);
+
+                    const markCell = document.createElement('td');
+                    markCell.innerHTML = phones.mark;
+                    row.appendChild(markCell);
+
+                    const imgCell = document.createElement('td');
+                    const img = document.createElement('img');
+                    img.src = phones.img;
+                    img.style.width = 50;
+                    row.appendChild(imgCell);
+                    imgCell.appendChild(img);
+                    table.appendChild(row);
+                    table.classList.add('table_1');
+                });
+
+                const root = document.querySelector('#root');
+                root.innerHTML = '';
+                root.appendChild(table);
+
+            });
+
+            const huaweiFilter = document.querySelector('#filter-model-huawei');
+
+            huaweiFilter.addEventListener('click', () => {
+                const filteredPhones = phones.filter(phone => phone.creater === 'Huawei');
+                console.log(filteredPhones);
+
+                renderPhonesTable(filteredPhones);
+
+
+            });
+
+
+
+            const sumsungFilter = document.querySelector('#filter-model-sumsung');
+            sumsungFilter.addEventListener('click', () => {
+                const filteredPhones = phones.filter(phone => phone.creater === 'Samsung');
+                console.log(filteredPhones);
+
+                renderPhonesTable(filteredPhones);
+            });
+
+
+            const allFilter = document.querySelector('#filter-model-all');
+
+            allFilter.addEventListener('click', () => {
+                const filteredPhones = phones;
+                console.log(filteredPhones);
+
+                renderPhonesTable(filteredPhones);
+            });
+
+
+
+            renderPhonesTable(phones);
+
+        }
+    </script>
+
+</head>
+
+
+<body>
+    <button id="filter-model-huawei">Huawei</button>
+    <button id="filter-model-sumsung">sumsung</button>
+    <button id="filter-model-apple">apple</button>
+    <button id="filter-model-all">all</button>
+
+    <div id='root'></div>
+</body>
+
+</html>
