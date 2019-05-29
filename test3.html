@@ -37,31 +37,31 @@
 
             const renderUsersTable = ((filteredUsersForRander) => {
                 const table = document.createElement('table');
-                filteredUsersForName.forEach((users) => {
+                filteredUsersForRander.forEach((users) => {
 
                     const row = document.createElement('tr');
 
                     const nameCell = document.createElement('td');
-                    nameCell.innerHTML = user.name;
+                    nameCell.innerHTML = users.name;
                     row.appendChild(nameCell);
 
                     const phoneCell = document.createElement('td');
-                    phoneCell.innerHTML = user.phone;
+                    phoneCell.innerHTML = users.phone;
                     row.appendChild(phoneCell);
 
                     const modelCell = document.createElement('td');
-                    modelCell.innerHTML = user.model;
+                    modelCell.innerHTML = users.model;
                     row.appendChild(modelCell);
 
                     const numberCell = document.createElement('td');
-                    numberCell.innerHTML = user.number;
+                    numberCell.innerHTML = users.number;
                     row.appendChild(numberCell);
 
 
                     const imgCell = document.createElement('td');
                     const img = document.createElement('img');
                     img.style.width = 150;
-                    img.src = user.img;
+                    img.src = users.img;
                     imgCell.appendChild(img);
                     row.appendChild(imgCell);
                     table.appendChild(row);
@@ -76,10 +76,22 @@
 
             });
 
+            const filterClickHandler = (event) => {
+                if (event.target.value === 'all') {
+                    renderUsersTable(users);
+                } else {
+                    const filteredUsers = users.filter(user => user.name === event.target.value);
+                    console.log(filteredUsers);
+
+                    renderUsersTable(filteredUsers);
+
+                }
+            }
+
             const nameFilter = document.querySelector('#filter-phone-egor');
             nameFilter.addEventListener('click', () => {
 
-                const filteredUsers = user.filter(user => user.phone === 'Egor');
+                const filteredUsers = users.filter(user => user.name === 'Egor');
                 console.log(filteredUsers);
 
                 renderUsersTable(filteredUsers);
@@ -89,7 +101,7 @@
             const nikitaFilter = document.querySelector('#filter-user-nikita');
             nikitaFilter.addEventListener('click', () => {
 
-                const filteredUsers = user.filter(user => user.name === 'Nikita');
+                const filteredUsers = users.filter(user => user.name === 'Nikita');
                 console.log(filteredUsers);
 
                 renderUsersTable(filteredUsers);
@@ -125,9 +137,9 @@
 
 <body>
 
-    <button id='#filter-phone-egor'>Egor</button>
-    <button id='#filter-user-nikita'>Nikita</button>
-    <button id='#filter-user-all'>All</button>
+    <button id='filter-phone-egor'>Egor</button>
+    <button id='filter-user-nikita'>Nikita</button>
+    <button id='filter-user-all'>All</button>
 
     <div id='root'> </div>
 
