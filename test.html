@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <script>
+        // const test = (HZ) => {
+        //     console.log(1);
+        //     console.log(HZ)
+
+        //     if (HZ === 'test') {
+        //         test('loshara');
+        //     }
+        // }
+        // console.log(2);
+        // test('superHZ');
+
+        // console.log(3);
+        // test('test');
+
+        const users = [
+            {
+                name: 'K',
+                age: 25,
+            },
+            {
+                name: 'Y',
+                age: 15,
+            },
+            {
+                name: 'C',
+                age: 2,
+            },
+            {
+                name: 'G',
+                age: 5,
+            },
+            {
+                name: 'E',
+                age: 13,
+            },
+            {
+                name: 'H',
+                age: 60,
+            },
+            {
+                name: 'D',
+                age: 17,
+            },
+            {
+                name: 'E',
+                age: 40,
+            },
+        ];
+
+        const preparedUsers = users
+            .filter(user => user.age < 20)
+            .sort((a, b) => a.age - b.age)
+            .map((user) => ({
+                name: user.name,
+                age: user.age,
+                air: user.age * 16,
+
+            }));
+
+
+
+        console.log(preparedUsers);
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <div>
+
+    </div>
+
+
+
+</body>
+
+</html>
