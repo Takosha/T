@@ -39,21 +39,21 @@
 
                 let user = {};
 
-                user.nameInpt = nameInpt;
-                user.emailInpt = emailInpt;
+                user.nameInpt = nameInpt.value;
+                user.emailInpt = emailInpt.value;
 
                 users.push(user);
 
 
 
-                const usersTable = (user) => {
+                const usersTable = (users) => {
                     const table = document.createElement('table');
 
                     users.forEach((user) => {
                         const row = document.createElement('tr');
 
                         const emailCell = document.createElement('td');
-                        emailCell.innerHTML = user.emailInpt.value;
+                        emailCell.innerHTML = user.emailInpt;
                         row.appendChild(emailCell);
 
                         const nameCell = document.createElement('td');
