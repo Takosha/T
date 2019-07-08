@@ -6,6 +6,7 @@
 
     <script>
         window.onload = () => {
+
             const closeModal = () => {
                 const modal = document.querySelector('#modal');
                 modal.style.display = 'none';
@@ -36,49 +37,52 @@
             let users = [];
             const deleteUser = (index) => {
                 users = users.filter((user, ind) => ind !== index);
-                //usersTable();
+                usersTable();
+            }
+            function usersTable() {
+                const table = document.createElement('table');
+                const root = document.querySelector('#root')
+                users.forEach((user, index) => {
+                    const row = document.createElement('tr');
+                    const emailCell = document.createElement('td');
+                    emailCell.innerHTML = user.emailInpt;
+                    row.appendChild(emailCell);
+
+                    const nameCell = document.createElement('td');
+                    nameCell.innerHTML = user.nameInpt;
+                    row.appendChild(nameCell);
+
+                    const actionCell = document.createElement('td');
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.innerHTML = 'delete';
+                    deleteButton.addEventListener('click', () => {
+                        deleteUser(index);
+
+                    });
+                    actionCell.appendChild(deleteButton)
+                    row.appendChild(actionCell);
+
+                    table.appendChild(row);
+                });
+
+                root.innerHTML = '';
+                root.appendChild(table);
             }
 
             const addButton = document.querySelector('#add')
             addButton.addEventListener('click', () => {
+
                 const emailInpt = document.querySelector('#email');
                 const nameInpt = document.querySelector('#name');
 
                 let user = {};
                 user.nameInpt = nameInpt.value;
                 user.emailInpt = emailInpt.value;
+
                 users.push(user);
 
-                function usersTable() {
-                    const table = document.createElement('table');
-                    const root = document.querySelector('#root')
-                    users.forEach((user, index) => {
-                        const row = document.createElement('tr');
-                        const emailCell = document.createElement('td');
-                        emailCell.innerHTML = user.emailInpt;
-                        row.appendChild(emailCell);
 
-                        const nameCell = document.createElement('td');
-                        nameCell.innerHTML = user.nameInpt;
-                        row.appendChild(nameCell);
-
-                        const actionCell = document.createElement('td');
-
-                        const deleteButton = document.createElement('button');
-                        deleteButton.innerHTML = 'delete';
-                        deleteButton.addEventListener('click', () => {
-                            deleteUser(index);
-                            console.log(index);
-                        });
-                        actionCell.appendChild(deleteButton)
-                        row.appendChild(actionCell);
-
-                        table.appendChild(row);
-                    });
-
-                    root.innerHTML = '';
-                    root.appendChild(table);
-                }
 
 
 
