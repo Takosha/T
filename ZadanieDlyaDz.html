@@ -1,0 +1,138 @@
+<html>
+<link rel="stylesheet" href="styles24.css">
+
+
+<head>
+    <script>
+        window.onload = () => {
+
+            let phones = [];
+
+
+
+
+            const openModal = document.querySelector('#openModal');
+            openModal.addEventListener('click', () => {
+                const modal = document.querySelector('#modal');
+                modal.style.display = 'block';
+                const modalShadow = document.querySelector('.modalShadow')
+                modalShadow.style.display = 'block';
+
+                const nameBox = document.querySelector('#name');
+                const priceBox = document.querySelector('#price');
+                const descriptionBox = document.querySelector('#description');
+
+                nameBox.value = '';
+                priceBox.value = '';
+                descriptionBox.value = '';
+
+            });
+
+
+
+
+
+            const closeModal = document.querySelector('#close')
+            closeModal.addEventListener('click', () => {
+
+
+                const modal = document.querySelector('#modal');
+                modal.style.display = 'none';
+
+                const modalShadow = document.querySelector('.modalShadow');
+                modalShadow.style.display = 'none';
+            })
+
+
+            function renderTable() {
+                const root = document.querySelector('#root')
+                root.innerHTML = '';
+
+                const table = document.createElement('table');
+
+                phones.forEach((phone) => {
+                    const row = document.createElement('tr');
+
+                    const nameCell = document.createElement('td');
+                    nameCell.innerHTML = phone.name;
+                    row.appendChild(nameCell);
+
+                    const priceCell = document.createElement('td');
+                    priceCell.innerHTML = phone.price;
+                    row.appendChild(priceCell);
+
+                    const descriptionCell = document.createElement('td');
+                    descriptionCell.innerHTML = phone.description;
+                    row.appendChild(descriptionCell);
+
+                    table.appendChild(row);
+                });
+
+                root.appendChild(table);
+            };
+
+
+            const addButton = document.querySelector('#add');
+            addButton.addEventListener('click', () => {
+                const nameBox = document.querySelector('#name');
+                const priceBox = document.querySelector('#price');
+                const descriptionBox = document.querySelector('#description');
+
+                const phone = {
+                    name: nameBox.value,
+                    price: priceBox.value,
+                    description: descriptionBox.value,
+                }
+
+                phones.push(phone);
+
+                renderTable();
+            });
+
+        }
+
+
+
+
+
+
+    </script>
+
+
+</head>
+
+
+<body>
+    <button id='openModal'>Open</button>
+
+    <div id='modal' class='modal'>
+        <div class='header'> Add Something</div>
+        <div class='body'>
+            <input type='text' id='name' placeholder='Name'>
+            <input type='text' id='price' placeholder='Price'>
+            <input type='text' id='description' placeholder="Description">
+        </div>
+        <div class='footer'>
+            <button id='close'>Close</button>
+            <button id='add'>Add</button>
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class='modalShadow'></div>
+
+    <div id='root'></div>
+
+
+
+
+</body>
+
+</html>
