@@ -1,0 +1,39 @@
+<script>
+
+    // const string = "str_str_str";
+    // // console.log(string.toUpperCase());
+    // let prev = '';
+    // let res = '';
+
+    // for (let i = 0; i < string.length; i++) {
+    //     const symb = string[i];
+
+    //     if (symb !== '_') {
+    //         if (prev !== '_') {
+    //             res = res + symb;
+    //         } else {
+    //             res = res.toUpperCase();
+    //         }
+    //     }
+    // }
+
+    // console.log(res);
+
+    let string = '_oh_pes';
+    let string2 = '';
+
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === '_') {
+            // string2 = string[i + 1];
+
+            console.log(string[i + 1].toUpperCase());
+            string2 = string[i + 1].toUpperCase();
+        }
+        if (string[i] !== '_' && string[i - 1] !== '_') {
+            console.log(string[i])
+        }
+
+    }
+
+
+</script>
