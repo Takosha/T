@@ -1,0 +1,129 @@
+<script>
+    // const string = "str_str_str";
+    // let stringWords = string.split('_');
+    // console.log(stringWords)
+
+
+    // stringWords = stringWords.map((str, index) => {
+    //     if (index === 0) {
+    //         return str
+    //     }
+
+
+    //     const first = str[0].toUpperCase();
+    //     const newStr = first + str.slice(0 + str);
+    //     return newStr;
+    // });
+
+    // console.log(stringWords.join(''))
+    // console.log('алфавит'.toUpperCase(1)); // 'АЛФАВИТ'
+
+
+    // Круглые скобки работают(с 43 строки додумать)
+
+    // let str = '(()()())';
+    // let arr = [];
+
+
+
+    // for (let i = 0; i < str.length; i++) {
+    //     arr.push(str[i]);
+    //     // console.log(arr)
+
+
+
+    //     if (arr[arr.length - 1] === ')' && arr[arr.length - 2] === '(') {
+    //         arr.pop();
+    //         arr.pop();
+
+    //     }
+    //     if (arr[arr.length - 1] === '}' && arr[arr.length - 2] === '{') {
+    //         arr.pop();
+    //         arr.pop();
+    //     }
+
+    // }
+    // console.log(arr);
+
+
+    // function arraySum(array) {
+    //     let sum = 0;
+    //     for (let i = 0; i < array.length; i++) {
+    //         sum += array[i];
+    //     }
+    //     console.log(sum);
+    // }
+    // arraySum(arr);
+
+    // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // let sum = 0;
+
+    // for (let i = 0; i < arr.length; i++) {
+    //     sum = sum + arr[i];
+    // }
+    // console.log(sum)
+
+    // let arr = [-1, 2, -1, 3, -3, -4]
+    // let neg = 0;
+
+    // for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] < 0) {
+    //         neg = neg + 1;
+    //     }
+    // }
+    // console.log(neg)
+
+
+
+    // n = 5;
+    // let fact = 1
+    // for (let i = 1; i <= n; i++) {
+    //     fact = fact * i;
+    // }
+    // console.log(fact)
+
+
+    // function fact(n) {
+    //     console.log(n)
+    //     if (n === 1) {
+    //         return 1;
+    //     }
+
+    //     return n * fact(n - 1);
+
+
+    // }
+    // const res = fact(3);
+    // console.log(res)
+
+
+
+    function sum(n) {
+
+        if (n === 1) {
+            return 1;
+        }
+        return n + sum(n - 3);
+    }
+    const res = sum(22);
+    console.log(res);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
