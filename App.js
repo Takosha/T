@@ -7,6 +7,7 @@ class App extends Component {
     text: '',
     todos: [],
     counter: 0,
+
   }
 
   onTextChange = (event) => {
@@ -28,18 +29,32 @@ class App extends Component {
 
       }];
 
-    console.log(todos)
-
     this.setState({
       text: '',
       todos,
       counter: this.state.counter + 1,
     })
+    console.log(todos)
+  }
+
+  onComplete = (todoId) => () => {
+    let todos = this.state.todos;
+    for (let i = 0; i < todos.length; i++) {
+      if (todoId === todos[i].id) {
+        todos[i].compleated = true;
+      }
+    }
+
+    this.setState({
+      todos,
+    })
+    console.log(todos)
   }
 
   onTodoDelete = (todoId) => () => {
     const todos = this.state.todos
       .filter(todo => todoId !== todo.id);
+    console.log(todos)
 
     this.setState({
       todos,
@@ -64,13 +79,20 @@ class App extends Component {
           this.state.todos.map((todo) => (
             <div key={todo.id}>
               <span>{todo.text}</span>
+              {todo.id >= 0 &&
+                <h2>
+                  У вас непрочитанных сообщений.
+                </h2>
+              }
               <button onClick={this.onTodoDelete(todo.id)}>delete</button>
-              <button>compleated</button>
+              <button onClick={this.onComplete(todo.id)}>compleated</button>
             </div>
           ))
         }
       </div>
+
     )
+
   }
 }
 
